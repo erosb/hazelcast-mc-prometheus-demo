@@ -1,0 +1,5 @@
+hazelcast: 
+  map:
+    primeFactors:
+      map-store: 
+        class-name: com.hazelcast.prometheusdemo.MapDBBackedMapStore
