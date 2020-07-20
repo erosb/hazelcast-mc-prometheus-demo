@@ -24,6 +24,7 @@ public class MapDBBackedMapStore implements MapStore<Integer, List<Integer>> {
         DB db = DBMaker.fileDB(System.getProperty("java.io.tmpdir") + "/hello.mapdb").make();
         primeFactors = db.hashMap("primeFactors", Serializer.INTEGER, Serializer.INT_ARRAY).createOrOpen();
         System.out.println("done.");
+        Runtime.getRuntime().addShutdownHook(new Thread(db::close));
     }
 
     @Override
